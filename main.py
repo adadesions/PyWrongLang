@@ -1,9 +1,9 @@
 import os
 from yaml import load, dump
 try:
-    from yaml import CLoader as Loader, CDumper as Dumper
+    from yaml import CLoader as Loader
 except ImportError:
-    from yaml import Loader, Dumper
+    from yaml import Loader
 
 FILE_PATH = os.path.dirname(__file__)
 DATA_PATH = os.path.join(FILE_PATH, 'en-th.yml')
@@ -11,10 +11,9 @@ DATA_PATH = os.path.join(FILE_PATH, 'en-th.yml')
 with open(DATA_PATH, 'r') as file:
     en_th = load(file)
 
-    text = "l;ylfu8iy["
+    text = input("Enter text to Convert: ")
     decode = ""
     for t in text:
         decode += en_th[t]
 
     print(decode)
-    print(en_th)
